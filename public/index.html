@@ -1,0 +1,81 @@
+<html ng-app="myapp">
+<head>
+<style type="text/css">
+	.panel-info{
+margin:10px;
+}
+.panel-body{
+text-align:center;
+}
+.table-bordered{
+margin-right:1px;
+
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="bootstrap-theme.min.css">
+<title>Contact List App</title>
+
+</head>
+<body>
+<h2 align="center">Contact-List App</h2><hr>
+<div class="panel panel-info">
+      <div class="panel-heading">Contact List</div>
+      <div class="panel-body">
+<table class="table table-bordered" ng-controller="myctrl" >
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Action1</th>
+			<th>Action2</th>
+		</tr>
+	</thead>
+    <tbody>
+    <tr>
+    	<td>
+    		<input type="text" class="form-control" ng-model="contact.name">
+    	</td>
+		<td>
+    		<input type="text" class="form-control" ng-model="contact.email">
+    	</td>
+    	<td>
+    		<input type="text" class="form-control" ng-model="contact.mobile">
+    	</td>
+    	<td align="center">
+    		<button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+    	</td>
+    	<td align="center">
+    		<button class="btn btn-primary" ng-click="updateContact()">Update Contact</button>
+    	</td>
+    </tr>
+	 	<tr ng-repeat="contact in contactList">
+	 		<td>{{contact.name}}</td>
+	 		<td>{{contact.email}}</td>
+	 		<td>{{contact.mobile}}</td>
+	 		<td align="center">
+	 		<button class="btn btn-warning" ng-click="editContact(contact._id)">Edit</button></td>
+	 		<td align="center">
+	 		<button class="btn btn-danger" ng-click="removeContact(contact._id)">Remove</button>
+	 		
+	 		
+	 		</td>
+	 	</tr>
+
+     </tbody>
+
+</table>
+
+</div>
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+
+
+</body>
+</html>
